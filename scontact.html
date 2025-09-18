@@ -13,7 +13,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 800px;
+      padding: 20px;
     }
 
     .contact-box {
@@ -22,7 +31,11 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       text-align: center;
-      width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-5px);
     }
 
     .contact-box h1 {
@@ -35,6 +48,7 @@
       font-size: 16px;
       margin: 8px 0;
       color: #555;
+      word-wrap: break-word;
     }
 
     .contact-box a {
@@ -46,14 +60,38 @@
     .contact-box a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 500px) {
+      .contact-box {
+        padding: 20px;
+      }
+      .contact-box h1 {
+        font-size: 20px;
+      }
+      .contact-box p {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="contact-box">
-    <h1>Contact Us</h1>
-    <p>Email: <a href="mailto:sachinkumar73073@gmail.com">sachinkumar730737@gmail.com</a></p>
-    <p>Phone: <a href="tel:+917307376321">+91 7307376321</a></p>
+  <div class="contact-container">
+    <div class="contact-box">
+      <h1>Email</h1>
+      <p><a href="mailto:sachinkumar73073@gmail.com">sachinkumar730737@gmail.com</a></p>
+    </div>
+    <div class="contact-box">
+      <h1>Phone</h1>
+      <p><a href="tel:+917307376321">+91 7307376321</a></p>
+    </div>
+    <div class="contact-box">
+      <h1>Office</h1>
+      <p>123, DataWipeX Street<br>City, Country</p>
+    </div>
+    <div class="contact-box">
+      <h1>Support</h1>
+      <p><a href="mailto:support@datwipex.com">support@datwipex.com</a></p>
+    </div>
   </div>
 </body>
 </html>
-
