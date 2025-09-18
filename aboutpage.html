@@ -14,15 +14,19 @@
     }
 
     section#about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
       background: #504e4e;
       padding: 50px 20px;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 50px auto;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(239, 237, 237, 0.1);
     }
 
     section#about h2 {
+      grid-column: 1 / -1;
       text-align: center;
       font-size: 28px;
       color: #dadfe4;
@@ -37,16 +41,37 @@
 
     section#about ul {
       margin: 15px 0 20px 25px;
+      padding: 0;
+      list-style: none;
     }
 
     section#about ul li {
       margin: 8px 0;
       font-size: 15px;
       color: #efe7e7;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    section#about ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #2980b9;
     }
 
     section#about strong {
       color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+      section#about {
+        padding: 30px 15px;
+        gap: 20px;
+      }
+      section#about h2 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -55,28 +80,30 @@
   <!-- About Section -->
   <section id="about">
     <h2>About DataWipeX</h2>
-    <p>
-      <strong>DataWipeX</strong> DataWipeX is a tool that helps you completely remove data from storage devices like SSDs, hard drives, and USB drives. In today’s digital world, just deleting files or formatting a disk is not enough because the data can still be recovered by others.
-    </p>
 
-    <p>
-      Our tool makes sure the data is fully removed and cannot be recovered by using trusted wiping methods. 
-      <strong>industry-standard wiping techniques</strong>. No matter if you are a single user, an IT manager, or a recycling company, DataWipeX gives you a quick and trusted way to keep your private data safe before you throw away, sell, or reuse a device.
-    </p>
+    <div>
+      <p>
+        <strong>DataWipeX</strong> is a tool that helps you completely remove data from storage devices like SSDs, hard drives, and USB drives. In today’s digital world, just deleting files or formatting a disk is not enough because the data can still be recovered by others.
+      </p>
+      <p>
+        Our tool makes sure the data is fully removed and cannot be recovered by using <strong>industry-standard wiping techniques</strong>. No matter if you are a single user, an IT manager, or a recycling company, DataWipeX gives you a quick and trusted way to keep your private data safe before you throw away, sell, or reuse a device.
+      </p>
+    </div>
 
-    <h3>Key Features:</h3>
-    <ul>
-      <li>✔ One-click secure wipe</li>
-      <li>✔ Support for SSDs, HDDs, and USB drives</li>
-      <li>✔ Multiple erasure methods (overwrite, secure erase, NVMe sanitize)</li>
-      <li>✔ Certificate of erasure for compliance & record-keeping</li>
-      <li>✔ Simple web-based interface, no technical skills required</li>
-    </ul>
+    <div>
+      <h3>Key Features:</h3>
+      <ul>
+        <li>One-click secure wipe</li>
+        <li>Support for SSDs, HDDs, and USB drives</li>
+        <li>Multiple erasure methods (overwrite, secure erase, NVMe sanitize)</li>
+        <li>Certificate of erasure for compliance & record-keeping</li>
+        <li>Simple web-based interface, no technical skills required</li>
+      </ul>
+      <p>
+        At DataWipeX, our mission is to make secure data disposal <strong>easy, transparent, and trustworthy</strong>.
+      </p>
+    </div>
 
-    <p>
-      At DataWipeX, our mission is to make secure data disposal 
-      <strong>easy, transparent, and trustworthy</strong>.
-    </p>
   </section>
 
 </body>
