@@ -8,34 +8,48 @@
     body {
       font-family: Arial, sans-serif;
       background: #f5f6fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      place-items: center; /* centers content both vertically and horizontally */
       height: 100vh;
     }
+
+    .login-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
     .login-box {
       background: white;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      width: 300px;
       text-align: center;
+      display: grid;
+      gap: 15px;
     }
+
     .login-box h2 {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       color: #333;
     }
+
     .login-box input {
       width: 100%;
       padding: 10px;
-      margin: 8px 0;
       border: 1px solid #ccc;
       border-radius: 6px;
+      box-sizing: border-box;
     }
+
     .login-box button {
       width: 100%;
       padding: 10px;
-      margin-top: 12px;
       border: none;
       background: #3498db;
       color: white;
@@ -44,20 +58,36 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     .login-box button:hover {
       background: #2980b9;
+    }
+
+    @media (max-width: 500px) {
+      .login-box {
+        padding: 20px;
+      }
+      .login-box h2 {
+        font-size: 20px;
+      }
+      .login-box input, .login-box button {
+        font-size: 14px;
+        padding: 8px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="login-box">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   </div>
 
   <script>
@@ -67,10 +97,9 @@
       let username = document.getElementById("username").value;
       let password = document.getElementById("password").value;
 
-      // For now just check with dummy credentials
+      // Dummy credentials
       if(username === "admin" && password === "1234") {
         alert("✅ Login successful!");
-        // Redirect or show next page
         window.location.href = "home.html"; 
       } else {
         alert("❌ Invalid username or password");
