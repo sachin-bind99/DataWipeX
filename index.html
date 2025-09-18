@@ -578,10 +578,10 @@
             preview.innerHTML = "";
 
             Array.from(files).forEach(file => {
-                // Show file info
+
                 fileInfo.innerHTML += <p>${file.name} (${(file.size / 1024).toFixed(1)} KB)</p>;
 
-                // If image → preview it
+                
                 if (file.type.startsWith("image/")) {
                     const img = document.createElement("img");
                     img.src = URL.createObjectURL(file);
@@ -596,14 +596,14 @@
     <script>
         document.querySelector(".cta-button").addEventListener("click", () => {
             alert("Wiping process started!");
-            // Later: send request to backend to actually start SSD wipe
+            
             fetch("/wipe", { method: "POST" });
         });
     </script>
 
     <script>
         document.querySelector(".login-btn").addEventListener("click", () => {
-            window.location.href = "myloginpage.html"; // opens login page
+            window.location.href = "myloginpage.html"; 
         });
     </script>
 
@@ -612,6 +612,7 @@
 </body>
 
 </html> 
+
 
 
 
